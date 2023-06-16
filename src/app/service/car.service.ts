@@ -31,13 +31,13 @@ export class CarService {
   getRentLog(CAR_ID: number):Observable<RENT_LOG[]>{
     const apiUrl = this.serverUrl + 'getRentLog/' + CAR_ID;
 
-    return this.http.get<RENT_LOG[]>(apiUrl).pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError(error.error);
-      })
-    );
+    //return this.http.get<RENT_LOG[]>(apiUrl).pipe(
+    //  catchError((error: HttpErrorResponse) => {
+    //    return throwError(error.error);
+    //  })
+    //);
 
-    //return of(MOCKRENT_LOG);
+    return of(MOCKRENT_LOG);
   }
 
 }

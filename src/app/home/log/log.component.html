@@ -1,1 +1,60 @@
-<p>log works!</p>
+<div class="container">
+  <h1 style="font-size: 24px; margin-top: 20px">The Car Booking System</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col" style="flex-grow: 1;">
+        <mat-form-field class="full-width">
+          <mat-select formControlName="CAR" placeholder="Select Car" style="font-size: 20px;">
+            <mat-option *ngFor="let item of cars" [value]="item">
+              {{item.CAR_NAME}}({{item.CAR_NO}})
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <button mat-raised-button style="background-color: #bbe8ec; font-size: 20px;" type="submit"
+          [disabled]="formGroup.invalid">Search
+        </button>
+      </div>
+      <div class="col"></div>
+    </div>
+  </form>
+
+  <div class="row" style="margin-top: 10px">
+    <div class="col" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
+      <button mat-icon-button routerLink="/previous-month" (click)="previousMonth()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+    <div class="col" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
+      <p style="color:#6ac13c; font-size: 24px">{{ currentYear }}</p>
+      <p style="color:#6ac13c; font-size: 20px">{{ monthName[currentMonth - 1] }}</p>
+    </div>
+    <div class="col" style="display: flex; flex-direction: column;align-items: center; justify-content: center;">
+      <button mat-icon-button routerLink="/next-month" (click)="nextMonth()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="row lightgrey body-list">
+    <ul>
+      <li>MON</li>
+      <li>TUE</li>
+      <li>WED</li>
+      <li>THU</li>
+      <li>FRI</li>
+      <li>SAT</li>
+      <li>SUN</li>
+    </ul>
+  </div>
+
+  <div class="row darkgrey body-list">
+    <ng-container *ngFor="let weekDays of totalWeekday">
+      <ul>
+        <li *ngFor="let date of weekDays" [class.greenbox]="isCurrentDate(date)"
+          [class.lightgreybox]="isWithinDateRange(date)">{{ date }}</li>
+      </ul>
+    </ng-container>
+  </div>
+</div>
