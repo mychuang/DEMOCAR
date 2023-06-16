@@ -30,9 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/assets/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,12 +97,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/assets/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
