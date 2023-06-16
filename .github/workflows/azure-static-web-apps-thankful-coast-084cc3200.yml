@@ -43,4 +43,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_THANKFUL_COAST_084CC3200 }}
           action: "close"
-          output_location: "/dist" # 更新这里的值为你的构建输出目录路径
+          output_location: "/dist/democar" # 更新这里的值为你的构建输出目录路径
